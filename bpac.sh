@@ -18,9 +18,10 @@
 #  
 # 
 
+
 op=$1
 apps=""
-
+TMPFILE=/tmp/aux.txt
 shift
 
 # Take packages names
@@ -31,15 +32,15 @@ done
 
 #If operation is -S, try install new packages
 if [ "$op" = "-S" ]; then
-	pacman -S $apps
-	
+	pacman -S $apps 2> $TMPFILE
 	#If not found...
 	if [ "$?" != 0 ]; then
+		apps=$(cat $TMPFILE | sed 's/.*:*://')
 		echo -e "\nDon't you mean: \n"
 		set $apps
 		while [ "$1" != "" ]; do
-			echo -e "For \e[1;36m$1\e[0m:\n"
-			pacman -Ss $1 | grep  / | sed 's/(.*.)//'  | grep $1 | sed 's/extra\/\|community\/\|core\/\|multilib\///' 
+			echo -e "For packges with \e[1;36m$1\e[0m included:\n"
+			pacman -Ss $1 | grep  / | sed 's/(.*.)//'  | grep $1 | sed 's/.*\///' 
 			shift
 			echo 
 		done
