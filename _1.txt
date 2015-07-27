@@ -1,2 +1,0 @@
-erro: alvo não encontrado: openb
-erro: alvo não encontrado: cinnam

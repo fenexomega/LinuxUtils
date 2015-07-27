@@ -1,0 +1,20 @@
+guake&
+
+xfce4-panel&
+
+xset b off &
+
+compton -c -f -o 1.0 -I 0.1 -O 0.1 -C -i 1 -z --vsync opengl-swc --paint-on-overlay --backend glx --shadow-exclude "! name~=''" -b --use-ewmh-active-win --glx-no-stencil&
+
+pcmanfm -d --desktop &
+
+xscreensaver -no-splash &
+
+$(sleep 5 && conky)&
+
+indicator-cpufreq &
+
+xfce4-clipman &
+
+xflux -l -04 -g -39 &
+
