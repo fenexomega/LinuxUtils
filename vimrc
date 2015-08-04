@@ -99,5 +99,8 @@ imap <C-.> :<C-U>Commentary <CR>
 "ctrl + w =
 " MySQL
 let g:dbext_default_profile_postgres_local = 'type=PSQL:user=postgres'
-
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-b>"
+let g:UltiSnipsJumpForwardTrigger="<C-.>"
+let g:UltiSnipsJumpBackwardTrigger="<C-,>"
+
